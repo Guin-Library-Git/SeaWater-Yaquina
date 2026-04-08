@@ -16,8 +16,8 @@ library(dplyr)
 
 #User-defined variables:
 
-Thresholds<-c(6.99,7.24,7.49,7.74); #Choose any number of thresholds for hypoxia (pH<=Threshold)
-ThresholdLabels<-c("Extreme","Severe", "Moderate", "Sub-Optimal"); #Choose labels for these thresholds
+Thresholds<-c(7.299,7.39,7.49,7.59); #Choose any number of thresholds for hypoxia (pH<=Threshold)
+ThresholdLabels<-c("Severe", "Moderate", "Sub-Optimal", "Marginal"); #Choose labels for these thresholds
 #Length of the labels list must be the same as the list of thresolds, and must be in the same order. Format labels as "Label"
 
 MinEvent<-59.9; #defined in minutes, the minimum duration of hypoxia to be considered an event 

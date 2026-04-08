@@ -15,8 +15,8 @@ require(dplyr)
 library(readr)
 #User-defined variables:
 
-Thresholds<-c(.99,1.99,2.99,3.49,4.79); #Choose any number of thresholds for hypoxia (DO<=Threshold)
-ThresholdLabels<-c("Severe","Moderately Severe", "Moderate","Marginal", "Sub-Optimal"); #Choose labels for these thresholds
+Thresholds<-c(1.99,2.99,3.99,4.99); #Choose any number of thresholds for hypoxia (DO<=Threshold)
+ThresholdLabels<-c("Severe", "Moderate","Marginal", "Sub-Optimal"); #Choose labels for these thresholds
 #Length of the labels list must be the same as the list of thresolds, and must be in the same order. Format labels as "Label"
 
 MinEvent<-59.9; #defined in minutes, the minimum duration of hypoxia to be considered an event 
@@ -33,11 +33,11 @@ timeDigits<-5; #specifies the number of decimal places to which the time data ar
 #Note that the following functions expect the columns to be 
 #TIME, TIME_NUM_FORMAT, and Temperature in that order.
 getwd() # get your working directory
-setwd("C:/Users/gurrs/Documents/Github_repositories/GurrLab/SeaWater-Yaquina/raw")
+# setwd("C:/Users/gurrs/Documents/Github_repositories/GurrLab/SeaWater-Yaquina/raw")
 
 # read the 3rd sheet
 filename       <- "Yaquina_Bay.csv"
-raw_Yaquina    <- read_excel("Mochon Collura-YSI Yaquina 2009_2025-dataset final.xlsx", sheet = 3)
+raw_Yaquina    <- readxl::read_excel("../../raw/Mochon Collura-YSI Yaquina 2009_2025-dataset final.xlsx", sheet = 3)
 data           <- as.data.frame(raw_Yaquina) %>% 
                       dplyr::filter(Flags == 1) %>%  # flags == 1, Pass
                       mutate(TIME = lubridate::as_datetime(Timestamp.GMT),
