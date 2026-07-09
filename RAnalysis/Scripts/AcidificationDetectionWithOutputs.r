@@ -12,12 +12,12 @@
 
 library(lubridate)
 library(dplyr)
-
+library(readxl)
 
 #User-defined variables:
 
-Thresholds<-c(7.299,7.39,7.49,7.59); #Choose any number of thresholds for hypoxia (pH<=Threshold)
-ThresholdLabels<-c("Severe", "Moderate", "Sub-Optimal", "Marginal"); #Choose labels for these thresholds
+Thresholds<-c(7.601, 7.801, 8.01); #Choose any number of thresholds for hypoxia (pH<=Threshold)
+ThresholdLabels<-c("Severe","Moderately Severe", "Moderate"); #Choose labels for these thresholds
 #Length of the labels list must be the same as the list of thresolds, and must be in the same order. Format labels as "Label"
 
 MinEvent<-59.9; #defined in minutes, the minimum duration of hypoxia to be considered an event 
@@ -38,7 +38,7 @@ timeDigits<-5; #specifies the number of decimal places to which the time data ar
 #Note that the following functions expect the columns to be 
 #TIME, TIME_NUM_FORMAT, and Temperature in that order.
 getwd() # get your working directory
-setwd("C:/Users/gurrs/Documents/Github_repositories/GurrLab/SeaWater-Yaquina/raw")
+setwd("C:/Users/gurrs/Documents/6_Github_repositories/GurrLab/SeaWater-Yaquina/raw")
 
 # read the 3rd sheet
 filename       <- "Yaquina_Bay.csv"

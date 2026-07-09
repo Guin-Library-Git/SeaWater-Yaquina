@@ -53,7 +53,7 @@ Yaquina_all <- rbind(Yaquina_HypoxiaEvents,
 
 # Example: compute means by month and categories
 df_summ <- Yaquina_Av_all %>%
-  dplyr::filter(year %in% 2019 & parameter == 'DO') %>% 
+  dplyr::filter(year %in% 2019 & parameter == 'temperature') %>% 
   # dplyr::filter(year %in% 2014) %>% 
   # dplyr::filter(parameter == 'temperature') %>% 
   group_by(parameter, year, frequency, month_factor, bar.width, bar.alpha, category) %>%
